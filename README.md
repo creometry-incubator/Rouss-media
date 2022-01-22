@@ -1,2 +1,2 @@
 # Rouss-media
-A new bloging site
+A news bloging site
