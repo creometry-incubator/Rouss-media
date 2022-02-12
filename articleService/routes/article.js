@@ -2,24 +2,11 @@ const router = require("express").Router();
 let fs = require('fs');
 const Article = require("../models/article.model")
 const multer = require("multer");
-
+const path = require("path");
 const upload = multer({
     dest: "./images"
     // you might also want to set some limits: https://github.com/expressjs/multer#limits
   });
-router.route('/').post(async (req, res)=>{
-    try{
-        console.log(req);
-        let article = new Article({title: req.body.title, timestamp: new Date()+""});
-        article = await article.save();
-        fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>console.log(err));
-        res.json(article);
-    }
-    catch(err){
-        res.json(err)
-    }
-    
-});
 
 router.route('/').get(async (req, res)=>{
 
@@ -38,9 +25,17 @@ router.route('/:id').get(async (req, res)=>{
     
 })
 
-router.route('/:id').put(async (req, res)=>{
+router.put('/:id', upload.single("file"), async (req, res)=>{
     try{
-        fs.writeFile("./articles/"+req.params.id+".html", req.body.content, err=>console.log(err));
+        fs.writeFile("./articles/"+req.params.id+".html", req.body.content, err=>{if(err)console.log(err)});
+        if(req.file){
+            const tempPath = req.file.path;
+        
+            fs.rename(tempPath,"./images/"+req.params.id+".png", err=>{
+                if(err) console.log(err)
+            })
+        }
+        
         let article = await Article.findByIdAndUpdate(req.params.id, {
             title: req.body.title,
         });
@@ -50,11 +45,11 @@ router.route('/:id').put(async (req, res)=>{
         res.json(err)
     }
     
-
 })
 router.route('/:id').delete(async (req, res)=>{
     try{
         fs.rmSync("./articles/"+req.params.id+".html");
+        fs.rmSync("./images/"+req.params.id+".png");
         await Article.findByIdAndDelete(req.params.id);
         res.json("article deleted");
     }
@@ -66,17 +61,16 @@ router.route('/:id').delete(async (req, res)=>{
 })
 
 
-router.post('/upload', upload.single("file"), async (req, res)=>{
+router.post('/', upload.single("file"), async (req, res)=>{
     try{
         let article = new Article({title: req.body.title, timestamp: new Date()+""});
         article = await article.save();
-        console.log("aziz");
         const tempPath = req.file.path;
         
         fs.rename(tempPath,"./images/"+article._id+".png", err=>{
             if(err) console.log(err)
         })
-        fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>console.log(err));
+        fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>{if(err) console.log(err)});
         res.json(article);
     }
     catch(err){
@@ -84,5 +78,11 @@ router.post('/upload', upload.single("file"), async (req, res)=>{
     }
     
 })
-
+router.route('/image/:id').get(async (req, res)=>{
+    try {
+        res.sendFile(path.join(__dirname, "../images/"+req.params.id+".png"));
+      } catch (error) {
+        res.status(400).send('Error while downloading file. Try again later.');
+      }
+})
 module.exports = router;
