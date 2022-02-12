@@ -21,23 +21,36 @@ let modules = {
 export default function Editor(props){
     const [value, setValue] = useState('');
     const [title, setTitle] = useState('');
+    const [img, setImage] = useState();
     useEffect(()=>{
       console.log(props)
     },[])
     const Save= ()=>{
-        axios.post(window.ENV.ARTICLE_SERVICE_URI, {
-          title: title,
-          content: value,
-        }).then(res=>{
+        const formData = new FormData();
+
+        formData.append(
+          "file",
+          img,
+          img.name
+        )
+        formData.append("title", title);
+        formData.append("content", value);
+
+        axios.post(window.ENV.ARTICLE_SERVICE_URI+"/upload", formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(res=>{
           if(res.data._id){
             window.alert("adding suceeded")
             window.location = "/"
-          }else
-            window.alert(res.data)
+          }else{
+            window.alert("opps!! an error occured")
+          }
         })
     }
     return(
         <div>
+          <input type="file" onChange={(e)=>{
+            const [uploadedFile] = e.target.files
+            setImage(uploadedFile)
+          }}></input>
           <input onChange={e=>setTitle(e.target.value)} placeholder='title'/>
             <ReactQuill theme="snow"
                     modules={modules}

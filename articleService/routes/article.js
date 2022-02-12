@@ -1,9 +1,16 @@
 const router = require("express").Router();
 let fs = require('fs');
 const Article = require("../models/article.model")
+const multer = require("multer");
+
+const upload = multer({
+    dest: "./images"
+    // you might also want to set some limits: https://github.com/expressjs/multer#limits
+  });
 router.route('/').post(async (req, res)=>{
     try{
-        let article = new Article({title: req.body.title, timestamp: new Date+""});
+        console.log(req);
+        let article = new Article({title: req.body.title, timestamp: new Date()+""});
         article = await article.save();
         fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>console.log(err));
         res.json(article);
@@ -56,6 +63,26 @@ router.route('/:id').delete(async (req, res)=>{
     }
     
 
+})
+
+
+router.post('/upload', upload.single("file"), async (req, res)=>{
+    try{
+        let article = new Article({title: req.body.title, timestamp: new Date()+""});
+        article = await article.save();
+        console.log("aziz");
+        const tempPath = req.file.path;
+        
+        fs.rename(tempPath,"./images/"+article._id+".png", err=>{
+            if(err) console.log(err)
+        })
+        fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>console.log(err));
+        res.json(article);
+    }
+    catch(err){
+        res.json(err)
+    }
+    
 })
 
 module.exports = router;

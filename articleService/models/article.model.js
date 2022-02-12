@@ -9,7 +9,8 @@ const articleSchema = new Schema({
     },
     title:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
     }); 
 const app = mongoose.model('article', articleSchema);
