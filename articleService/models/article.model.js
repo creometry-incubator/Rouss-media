@@ -11,6 +11,11 @@ const articleSchema = new Schema({
         type: String,
         required: true,
         unique: true
+    },
+    tags:{
+        type: Array,
+        required: false
+        
     }
     }); 
 const app = mongoose.model('article', articleSchema);

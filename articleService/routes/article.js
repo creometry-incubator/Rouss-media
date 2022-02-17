@@ -5,7 +5,6 @@ const multer = require("multer");
 const path = require("path");
 const upload = multer({
     dest: "./images"
-    // you might also want to set some limits: https://github.com/expressjs/multer#limits
   });
 
 router.route('/').get(async (req, res)=>{
@@ -18,6 +17,7 @@ router.route('/:id').get(async (req, res)=>{
     try{
         let content = fs.readFileSync("./articles/"+req.params.id+".html", 'utf8')
         article = await Article.findById(req.params.id);
+        console.log(article);
         res.json({...article._doc, content: content});
     }catch(err){
         res.json(err)
@@ -38,6 +38,7 @@ router.put('/:id', upload.single("file"), async (req, res)=>{
         
         let article = await Article.findByIdAndUpdate(req.params.id, {
             title: req.body.title,
+            tags: JSON.parse(req.body.tags)
         });
         res.json(article);
     }
@@ -63,7 +64,8 @@ router.route('/:id').delete(async (req, res)=>{
 
 router.post('/', upload.single("file"), async (req, res)=>{
     try{
-        let article = new Article({title: req.body.title, timestamp: new Date()+""});
+        console.log(req.body.tags)
+        let article = new Article({title: req.body.title, timestamp: new Date()+"", tags: JSON.parse(req.body.tags) });
         article = await article.save();
         const tempPath = req.file.path;
         

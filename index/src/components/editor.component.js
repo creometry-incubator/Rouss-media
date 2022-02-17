@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import axios from "axios";
 import { useSearchParams   } from 'react-router-dom';
+import { WithContext as ReactTags } from 'react-tag-input';
+import "../css/example.css"
 let modules = {
     toolbar: [
       [{'font': []}],
@@ -24,6 +26,7 @@ export default function Editor(){
     const [title, setTitle] = useState('');
     const [img, setImage] = useState();
     const [preview, setPreview] = useState();
+    const [tags, setTags] = useState([]);
     let [searchParams] = useSearchParams();
     const [id, setID] = useState() ;
     useEffect(()=>{
@@ -31,7 +34,8 @@ export default function Editor(){
       if(searchParams.get("id")){
         axios.get(`${window.ENV.ARTICLE_SERVICE_URI}/${searchParams.get("id")}`).then(res=>{
           setValue(res.data.content);
-          setTitle(res.data.title)
+          setTitle(res.data.title);
+          setTags(res.data.tags);
         })
         setPreview(`${window.ENV.ARTICLE_SERVICE_URI}/image/${searchParams.get("id")}`)
       }
@@ -49,6 +53,8 @@ export default function Editor(){
         
         formData.append("title", title);
         formData.append("content", value);
+        formData.append("tags", JSON.stringify(tags));
+        console.log(formData.getAll(tags));
         if(id){
           axios.put(window.ENV.ARTICLE_SERVICE_URI+"/"+id, formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(res=>{
             if(res.data._id){
@@ -71,13 +77,29 @@ export default function Editor(){
         }
         
     }
+    const handleDelete = i => {
+      setTags(tags.filter((tag, index) => index !== i));
+    };
+  
+    const handleAddition = tag => {
+      setTags([...tags, tag]);
+    };
+  
     return(
         <div>
           <input type="file" onChange={(e)=>{
             const [uploadedFile] = e.target.files
             setImage(uploadedFile)
             setPreview(URL.createObjectURL(uploadedFile))
-          }}></input>
+            }}
+            accept="image/png"
+          ></input>
+          <ReactTags 
+          tags={tags}
+          handleAddition={handleAddition}
+          handleDelete={handleDelete}
+          placeholder="keywords"
+          />
           <img id="preview" src={preview} width="100"></img>
           <input onChange={e=>setTitle(e.target.value)} value={title} placeholder='title'/>
             <ReactQuill theme="snow"
