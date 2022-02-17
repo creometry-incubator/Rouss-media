@@ -8,8 +8,8 @@ const upload = multer({
   });
 
 router.route('/').get(async (req, res)=>{
-
-    let articles = await Article.find();
+    let filter = req.query.filter
+    let articles = await Article.find(filter?{$or: [{"tags.id": filter}, {"title": filter}]}: null);
     res.json(articles);
 })
 
@@ -17,7 +17,6 @@ router.route('/:id').get(async (req, res)=>{
     try{
         let content = fs.readFileSync("./articles/"+req.params.id+".html", 'utf8')
         article = await Article.findById(req.params.id);
-        console.log(article);
         res.json({...article._doc, content: content});
     }catch(err){
         res.json(err)
@@ -64,7 +63,6 @@ router.route('/:id').delete(async (req, res)=>{
 
 router.post('/', upload.single("file"), async (req, res)=>{
     try{
-        console.log(req.body.tags)
         let article = new Article({title: req.body.title, timestamp: new Date()+"", tags: JSON.parse(req.body.tags) });
         article = await article.save();
         const tempPath = req.file.path;
