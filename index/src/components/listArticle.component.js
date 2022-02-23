@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Sign from "./signIn.component";
 
 export default function List(){
     const [articles, setArticles] = useState([]);
@@ -22,7 +23,7 @@ export default function List(){
     }
     return(
         <div>
-            this is a list
+            <Sign />
             <button onClick={()=>window.location = "/#/editor" }>add article</button>
             <input type="text" placeholder="" value={filter} onChange={(e)=>{
                 setFilter(e.target.value)
