@@ -63,7 +63,7 @@ router.route('/:id').delete(async (req, res)=>{
 
 router.post('/', upload.single("file"), async (req, res)=>{
     try{
-        let article = new Article({title: req.body.title, timestamp: new Date()+"", tags: JSON.parse(req.body.tags) });
+        let article = new Article({title: req.body.title, tags: JSON.parse(req.body.tags), authorId: req.body.authorId });
         article = await article.save();
         const tempPath = req.file.path;
         

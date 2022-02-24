@@ -54,7 +54,6 @@ export default function Editor(){
         formData.append("title", title);
         formData.append("content", value);
         formData.append("tags", JSON.stringify(tags));
-        console.log(formData.getAll(tags));
         if(id){
           axios.put(window.ENV.ARTICLE_SERVICE_URI+"/"+id, formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(res=>{
             if(res.data._id){

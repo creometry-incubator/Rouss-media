@@ -3,10 +3,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
-    timestamp: {
-        type: String,
-        required: true
-    },
     title:{
         type: String,
         required: true,
@@ -16,7 +12,14 @@ const articleSchema = new Schema({
         type: Array,
         required: false
         
+    },
+    authorId:{
+        type: String,
+        required: true
     }
+    }, 
+    {
+        timestamps: true
     }); 
 const app = mongoose.model('article', articleSchema);
 
