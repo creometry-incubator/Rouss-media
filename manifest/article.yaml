@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: article
+spec:
+  selector:
+    matchLabels:
+      app: blog
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+      - name: article
+        image: azizbhy/article:v0.1.0
+        ports:
+        - containerPort: 5000
+        env:
+          - name: ATLAS_URI
+            valueFrom:
+              configMapKeyRef:
+                name: blog-configmap
+                key: ATLAS_URI 
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: article
+  labels:
+    app: blog
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+  selector:
+    app: blog
