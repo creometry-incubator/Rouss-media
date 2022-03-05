@@ -51,7 +51,7 @@ router.route('/:id').delete(async (req, res)=>{
 
 router.post('/', async (req, res)=>{
     try{
-        let article = new Article({title: req.body.title, tags: req.body.tags, authorId: "req.body.authorId", imageLink: req.body.imageLink });
+        let article = new Article({title: req.body.title, tags: req.body.tags, authorId: req.body.authorId, imageLink: req.body.imageLink });
         article = await article.save();   
         fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>{if(err) console.log(err)});        
         res.json(article);

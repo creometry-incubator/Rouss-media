@@ -4,6 +4,9 @@ import axios from "axios";
 import { useSearchParams   } from 'react-router-dom';
 import { WithContext as ReactTags } from 'react-tag-input';
 import "../css/example.css"
+import {useCookies} from "react-cookie"
+
+
 let modules = {
     toolbar: [
       [{'font': []}],
@@ -28,7 +31,10 @@ export default function Editor(){
     const [preview, setPreview] = useState();
     const [tags, setTags] = useState([]);
     let [searchParams] = useSearchParams();
-    const [id, setID] = useState() ;
+    const [id, setID] = useState();
+    const [cookies] = useCookies(['gloomeyToken']);
+
+
     useEffect(()=>{
       setID(searchParams.get("id"))
       if(searchParams.get("id")){
@@ -46,7 +52,8 @@ export default function Editor(){
           title: title,
           content: value,
           tags: tags,
-          imageLink: img
+          imageLink: img,
+          authorId: cookies.gloomeyToken
         }
         if(id){
           axios.put(window.ENV.ARTICLE_SERVICE_URI+"/"+id, formData).then(res=>{

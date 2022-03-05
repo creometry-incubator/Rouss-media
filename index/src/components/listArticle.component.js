@@ -33,7 +33,7 @@ export default function List(){
                 {articles.map((article, index)=>(
                     <li key={index}>
                         <p>{article.title}</p>
-                        <img src={window.ENV.ARTICLE_SERVICE_URI+"/image/"+article._id} width="200"></img>
+                        <img src={article.imageLink} width="200"></img>
                         <button onClick={()=>window.location = "/#/editor?id="+article._id}>update</button>
                         <button onClick={()=>delArticle(article._id, index)}>delete</button>
                     </li>
