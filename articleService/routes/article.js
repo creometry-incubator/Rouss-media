@@ -61,19 +61,15 @@ router.route('/:id').delete(async (req, res)=>{
 })
 
 
-router.post('/', upload.single("file"), async (req, res)=>{
+router.post('/', async (req, res)=>{
+    console.log("aaa")
     try{
-        let article = new Article({title: req.body.title, tags: JSON.parse(req.body.tags), authorId: req.body.authorId });
-        article = await article.save();
-        const tempPath = req.file.path;
-        
-        fs.rename(tempPath,"./images/"+article._id+".png", err=>{
-            if(err) console.log(err)
-        })
-        fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>{if(err) console.log(err)});
+        let article = new Article({title: req.body.title, tags: req.body.tags, authorId: req.body.authorId, imageLink: req.body.imageLink });
+        article = await article.save();           
         res.json(article);
     }
     catch(err){
+        
         res.json(err)
     }
     

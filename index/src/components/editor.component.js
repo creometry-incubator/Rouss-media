@@ -24,7 +24,7 @@ let modules = {
 export default function Editor(){
     const [value, setValue] = useState('');
     const [title, setTitle] = useState('');
-    const [img, setImage] = useState();
+    const [img, setImage] = useState("");
     const [preview, setPreview] = useState();
     const [tags, setTags] = useState([]);
     let [searchParams] = useSearchParams();
@@ -41,21 +41,15 @@ export default function Editor(){
       }
     },[])
     const Save= ()=>{
-      if( !preview || !title || !value) return;
-        const formData = new FormData();
-        if(img){
-          formData.append(
-            "file",
-            img,
-            img.name
-          )
+      if(!img || !title || !value) return;        
+        let formData = {
+          title: title,
+          content: value,
+          tags: tags,
+          imageLink: img
         }
-        
-        formData.append("title", title);
-        formData.append("content", value);
-        formData.append("tags", JSON.stringify(tags));
         if(id){
-          axios.put(window.ENV.ARTICLE_SERVICE_URI+"/"+id, formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(res=>{
+          axios.put(window.ENV.ARTICLE_SERVICE_URI+"/"+id, formData).then(res=>{
             if(res.data._id){
               window.alert("modifying suceeded")
               window.location = "/"
@@ -65,7 +59,8 @@ export default function Editor(){
             }
           })
         }else{
-          axios.post(window.ENV.ARTICLE_SERVICE_URI, formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(res=>{
+          console.log("aaa")
+          axios.post(window.ENV.ARTICLE_SERVICE_URI, formData).then(res=>{
             if(res.data._id){
               window.alert("adding suceeded")
               window.location = "/"
@@ -86,10 +81,11 @@ export default function Editor(){
   
     return(
         <div>
-          <input type="file" onChange={(e)=>{
-            const [uploadedFile] = e.target.files
-            setImage(uploadedFile)
-            setPreview(URL.createObjectURL(uploadedFile))
+          <input
+          placeholder='image link'
+          value={img} 
+          onChange={(e)=>{
+              setImage(e.target.value)
             }}
             accept="image/png"
           ></input>
@@ -99,7 +95,7 @@ export default function Editor(){
           handleDelete={handleDelete}
           placeholder="keywords"
           />
-          <img id="preview" src={preview} width="100"></img>
+          <img id="preview" src={img} width="100"></img>
           <input onChange={e=>setTitle(e.target.value)} value={title} placeholder='title'/>
             <ReactQuill theme="snow"
                     modules={modules}

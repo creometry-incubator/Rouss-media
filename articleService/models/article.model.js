@@ -16,6 +16,10 @@ const articleSchema = new Schema({
     authorId:{
         type: String,
         required: true
+    },
+    ImageLink:{
+        type: String,
+        
     }
     }, 
     {
