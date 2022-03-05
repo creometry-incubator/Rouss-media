@@ -16,12 +16,12 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
-          <Route exact path="/ff" element={<Home/>} />
-          <Route  path="/" element={<SearchResult />}/>
+          <Route exact path="/" element={<Home/>} />
+          <Route  path="/search" element={<SearchResult />}/>
           <Route   path="/gg" element={<SearchCategory/>} />
-          <Route  path="/qd" element={<Contact/>} />
-          <Route  path="/ggg" element={<Trends/>} />
-          <Route  path="/fdtt" element={<HotTopics/>} />
+          <Route  path="/contact" element={<Contact/>} />
+          <Route  path="/trends" element={<Trends/>} />
+          <Route  path="/hottopic" element={<HotTopics/>} />
 
 
         <Route exact path="/a" element={<List />} />

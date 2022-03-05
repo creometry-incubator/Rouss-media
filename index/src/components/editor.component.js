@@ -28,7 +28,6 @@ export default function Editor(){
     const [value, setValue] = useState('');
     const [title, setTitle] = useState('');
     const [img, setImage] = useState("");
-    const [preview, setPreview] = useState();
     const [tags, setTags] = useState([]);
     let [searchParams] = useSearchParams();
     const [id, setID] = useState();
@@ -43,7 +42,6 @@ export default function Editor(){
           setTitle(res.data.title);
           setTags(res.data.tags);
         })
-        setPreview(`${window.ENV.ARTICLE_SERVICE_URI}/image/${searchParams.get("id")}`)
       }
     },[])
     const Save= ()=>{

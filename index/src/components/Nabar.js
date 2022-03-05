@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 class Navbar extends Component {
+    constructor(){
+        super()
+        this.state = {
+            search: ""
+        }
+        this.submit = this.submit.bind(this)
+    }
+    submit(e){
+        e.preventDefault();
+        window.location = "/#/search?filter="+this.state.search
+    }
     render() { 
         return (<div>
             <div class="collapse top-search" id="collapseExample">
             <div class="card card-block">
                 <div class="newsletter-widget text-center">
-                    <form class="form-inline">
-                        <input type="text" class="form-control" placeholder="What you are looking for?"/>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    <form class="form-inline" method='get' action='/#/search' plain={true}  onSubmit={this.submit}>
+                        <input type="text" class="form-control" name="search" placeholder="What you are looking for?" value={this.state.search} onChange={(e)=> this.setState({search: e.target.value})}/>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search" ></i></button>
                     </form>
                 </div>
             </div>
