@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Sign from "./signIn.component";
 
 export default function List(){
     const [articles, setArticles] = useState([]);
@@ -22,7 +23,7 @@ export default function List(){
     }
     return(
         <div>
-            this is a list
+            <Sign />
             <button onClick={()=>window.location = "/#/editor" }>add article</button>
             <input type="text" placeholder="" value={filter} onChange={(e)=>{
                 setFilter(e.target.value)
@@ -32,7 +33,7 @@ export default function List(){
                 {articles.map((article, index)=>(
                     <li key={index}>
                         <p>{article.title}</p>
-                        <img src={window.ENV.ARTICLE_SERVICE_URI+"/image/"+article._id} width="200"></img>
+                        <img src={article.imageLink} width="200"></img>
                         <button onClick={()=>window.location = "/#/editor?id="+article._id}>update</button>
                         <button onClick={()=>delArticle(article._id, index)}>delete</button>
                     </li>
