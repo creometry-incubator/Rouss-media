@@ -1,8 +1,6 @@
 name: Author CI
 
 on:
-  push:
-    branches: [ manifests ]
   pull_request:
     branches: [ dev ]
 
