@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo no tests for now",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
