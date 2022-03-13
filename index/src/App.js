@@ -9,6 +9,7 @@ import SearchCategory from "./components/SearchPerCategory";
 import Contact from "./components/Contact";
 import Trends from "./Trends";
 import HotTopics from "./HotTopics";
+import Content from "./components/content";
 
 function App() {
   return (
@@ -16,15 +17,15 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route  path="/search" element={<SearchResult />}/>
+          <Route exact path="/ff" element={<Home/>} />
+          <Route  path="/" element={<SearchResult />}/>
           <Route   path="/gg" element={<SearchCategory/>} />
-          <Route  path="/contact" element={<Contact/>} />
-          <Route  path="/trends" element={<Trends/>} />
-          <Route  path="/hottopic" element={<HotTopics/>} />
+          <Route  path="/qd" element={<Contact/>} />
+          <Route  path="/ggg" element={<Trends/>} />
+          <Route  path="/fdtt" element={<HotTopics/>} />
+          <Route path="/sg" element={<Content/>}/>
 
-
-        <Route exact path="/a" element={<List />} />
+          <Route exact path="/a" element={<List />} />
           <Route exact path="/editor" element={<Editor />} />
         
         </Routes>

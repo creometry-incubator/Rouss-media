@@ -1,0 +1,28 @@
+.ReactTags__tagInputField {
+  background: #fff none repeat scroll 0 0;
+  border: 1px dashed #dadada;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  margin-bottom: 1.4rem;
+  min-height: 50px;
+  width: 100%;
+  text-transform: none;
+  margin-top: 15px;
+}
+.ReactTags__tag {
+  padding: 10px 15px;
+  border: 2px dashed #f2d129;
+  margin-right: 7px;
+}
+.ReactTags__remove {
+  color: #000;
+  padding: 0;
+  height: 27px;
+  width: 20px;
+  border-radius: 50;
+  background-color: #fffefe;
+  margin-left: 10px;
+}
