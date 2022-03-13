@@ -39,9 +39,9 @@ class Navbar extends Component {
                     <div class="col-lg-4 hidden-md-down">
                         <div class="topmenu text-center">
                             <ul class="list-inline">
-                                <li class="list-inline-item"><a href="blog-category-01.html"><i class="fa fa-star"></i> Trends</a></li>
-                                <li class="list-inline-item"><a href="blog-category-02.html"><i class="fa fa-bolt"></i> Hot Topics</a></li>
-                                <li class="list-inline-item"><a href="page-contact.html"><i class="fa fa-user-circle-o"></i> Write your article</a></li>
+                                <li class="list-inline-item"><a href="/#/trends"><i class="fa fa-star"></i> Trends</a></li>
+                                <li class="list-inline-item"><a href="/#/hot"><i class="fa fa-bolt"></i> Hot Topics</a></li>
+                                <li class="list-inline-item"><a href="/#/myArticles"><i class="fa fa-user-circle-o"></i> Write your article</a></li>
                             </ul>
                         </div>
                     </div>
@@ -82,10 +82,10 @@ class Navbar extends Component {
                             <li class="nav-item dropdown has-submenu">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdown02">
-                                    <li><a class="dropdown-item" href="search_category.html">Sports</a></li>
-                                    <li><a class="dropdown-item" href="search_category.html">Fashion</a></li>
-                                    <li><a class="dropdown-item" href="search_category.html">Travelling</a></li>
-                                    <li><a class="dropdown-item" href="search_category.html">Lifestyle</a></li>
+                                    <li><a class="dropdown-item" href="#">Sports</a></li>
+                                    <li><a class="dropdown-item" href="#">Fashion</a></li>
+                                    <li><a class="dropdown-item" href="#">Travelling</a></li>
+                                    <li><a class="dropdown-item" href="#">Lifestyle</a></li>
 
                                 </ul>
                             </li>
@@ -96,7 +96,7 @@ class Navbar extends Component {
                                 <a class="nav-link" href="#"><i class="fa fa-play-circle-o"></i> Videos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="page-contact.html">Contact</a>
+                                <a class="nav-link" href="/#/contact">Contact</a>
                             </li>
                         </ul>
                     </div>

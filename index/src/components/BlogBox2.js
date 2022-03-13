@@ -7,7 +7,7 @@ class BlogBox2 extends Component {
         return (
             <div class="blog-box">
                                     <div class="post-media">
-                                        <a href="single.html" title="">
+                                        <a href={'/#/'+this.props.article._id} title="">
                                             <img src={this.props.article.imageLink} alt="" class="img-fluid"/>
                                             <div class="hovereffect">
                                                 <span></span>
@@ -15,10 +15,10 @@ class BlogBox2 extends Component {
                                         </a>
                                     </div>
                                     <div class="blog-meta big-meta">
-                                        <h4><a href="single.html" title="">{this.props.article.title}</a></h4>
-                                        <small><a href="blog-category-01.html" title="">Lifestyle</a></small>
-                                        <small><a href="single.html" title="">{(new Date(this.props.article.updatedAt)).toDateString()}</a></small>
-                                        <small><a href="blog-author.html" title="">by Amanda</a></small>
+                                        <h4><a href={'/#/'+this.props.article._id} title="">{this.props.article.title}</a></h4>
+                                        <small><a href={'/#/'+this.props.article._id} title="">Lifestyle</a></small>
+                                        <small><a href={'/#/'+this.props.article._id} title="">{(new Date(this.props.article.updatedAt)).toDateString()}</a></small>
+                                        <small><a href={'/#/'+this.props.article._id} title="">by Amanda</a></small>
                                     </div>
                                 </div>
         );
