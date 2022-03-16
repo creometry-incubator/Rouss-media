@@ -19,8 +19,10 @@ connection.once("open", () => {
 });
 
 const articleRouter = require('./routes/article')
+const authorRouter = require('./routes/author')
 
-app.use("/", articleRouter)
+app.use("/article", articleRouter)
+app.use("/author", authorRouter)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -7,6 +7,7 @@ export default function List(){
     const [filter, setFilter] = useState("");
     useEffect(()=>{
         axios.get(window.ENV.ARTICLE_SERVICE_URI).then(res=>{
+            console.log(res.data)
             setArticles(res.data)
         })
     }, [])
