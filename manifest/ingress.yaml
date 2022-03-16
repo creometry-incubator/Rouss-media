@@ -48,10 +48,3 @@ spec:
             name: article
             port:
               number: 5000
-      - path: /authors(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: author
-            port:
-              number: 5000

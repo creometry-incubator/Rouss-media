@@ -55,6 +55,7 @@ export default function Editor() {
           setValue(res.data.content);
           setTitle(res.data.title);
           setTags(res.data.tags);
+          setImage(res.data.imageLink)
         });
     }
   }, []);
@@ -101,26 +102,26 @@ export default function Editor() {
 
   return (
     <div>
-      <div class="page-title">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      <div className="page-title">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
               <h2>Write an article</h2>
             </div>
           </div>
         </div>
       </div>
 
-      <section class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="page-wrapper">
+      <section className="section">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="page-wrapper">
                 
-                  <div class="col-lg-12">
-                    <form class="form-wrapper">
-                      <div class="row">
-                      <div class="col-lg-6">
+                  <div className="col-lg-12">
+                    <form className="form-wrapper">
+                      <div className="row">
+                      <div className="col-lg-6">
                       <input
                         className="form-control"
                         placeholder="image link"
