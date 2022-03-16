@@ -36,7 +36,7 @@ export default function Content(props) {
 
                                 <div class="blog-meta big-meta">
                                     <small><a href="single.html" title="">{(new Date(article.updatedAt)).toDateString()}, </a></small>
-                                    <small><a href="blog-author.html" title="">by Jessica</a></small>
+                                    <small><a href="blog-author.html" title="">by {article.author.username}</a></small>
                                 </div>
 
                             </div>

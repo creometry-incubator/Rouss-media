@@ -1,13 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import Sign from "./signIn.component";
+import {useCookies} from "react-cookie"
 
 export default function List(){
     const [articles, setArticles] = useState([]);
     const [filter, setFilter] = useState("");
+    const [cookies] = useCookies(['gloomeyToken']);
+
     useEffect(()=>{
         axios.get(window.ENV.ARTICLE_SERVICE_URI).then(res=>{
-            console.log(res.data)
             setArticles(res.data)
         })
     }, [])
@@ -25,7 +27,9 @@ export default function List(){
     return(
         <div>
             <Sign />
-            <button onClick={()=>window.location = "/#/editor" }>add article</button>
+            {cookies.gloomeyToken?
+             <div>
+<button onClick={()=>window.location = "/#/editor" }>add article</button>
             <input type="text" placeholder="" value={filter} onChange={(e)=>{
                 setFilter(e.target.value)
             }}/>
@@ -41,6 +45,8 @@ export default function List(){
                 ))}
                 
             </ul>
+             </div> : <div></div>}
+            
 
         </div>
     )

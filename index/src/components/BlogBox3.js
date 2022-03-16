@@ -22,7 +22,7 @@ class BlogBox3 extends Component {
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href={'/#/'+this.props.article._id} title="">Travel</a></small>
                                     <small><a href={'/#/'+this.props.article._id} title="">{(new Date(this.props.article.updatedAt)).toDateString()}</a></small>
-                                    <small><a href={'/#/'+this.props.article._id} title="">by Boby</a></small>
+                                    <small><a href={'/#/'+this.props.article._id} title="">by {this.props.article.author.username}</a></small>
                                 </div>
                             </div>
 

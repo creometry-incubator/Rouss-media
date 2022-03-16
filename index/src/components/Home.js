@@ -13,7 +13,9 @@ function Home(props) {
             //get random articles
             let trends = []
             for(let i =0; i<2; i++){
-              trends.push(res.data[Math.floor(Math.random()*res.data.length)])
+              let art = res.data[Math.floor(Math.random()*res.data.length)]
+              if(art)
+              trends.push(art)
             } 
             setTrendings(trends);
             setLatest(res.data.splice(-3))

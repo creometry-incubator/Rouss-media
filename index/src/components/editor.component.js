@@ -55,6 +55,7 @@ export default function Editor() {
           setValue(res.data.content);
           setTitle(res.data.title);
           setTags(res.data.tags);
+          setImage(res.data.imageLink)
         });
     }
   }, []);

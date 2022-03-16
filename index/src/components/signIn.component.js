@@ -5,7 +5,6 @@ import {useCookies} from "react-cookie"
 export default function Sign(){
     const [cookies, setCookie] = useCookies(['gloomeyToken']);
     const responseGoogle = async (info)=>{
-        console.log(info)
         let response = await axios.post(`${window.ENV.AUTHOR_SERVICE_URI}/sign`, info)
         if(response.data.token){
             setCookie("gloomeyToken", response.data.token);
