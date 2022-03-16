@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
     render() { 
         return (
-            <div class="widget">
-                                <h2 class="widget-title">Search</h2>
-                                <form class="form-inline search-form">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search on the site"/>
+            <div className="widget">
+                                <h2 className="widget-title">Search</h2>
+                                <form className="form-inline search-form">
+                                    <div className="form-group">
+                                        <input type="text" className="form-control" placeholder="Search on the site"/>
                                     </div>
-                                    <a type="submit" href="search.html" class="btn btn-primary"><i class="fa fa-search"></i></a>
+                                    <a type="submit" href="search.html" className="btn btn-primary"><i className="fa fa-search"></i></a>
                                 </form>
                             </div>
         );

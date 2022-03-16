@@ -4,14 +4,14 @@ class Footer extends Component {
   render() {
     return (
       <div>
-        <footer class="footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="widget">
-                  <h2 class="widget-title">Recent Posts</h2>
-                  <div class="blog-list-widget">
-                    <div class="list-group">
+        <footer className="footer">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div className="widget">
+                  <h2 className="widget-title">Recent Posts</h2>
+                  <div className="blog-list-widget">
+                    <div className="list-group">
                       <BlogFooterCard />
                       <BlogFooterCard />
                       <BlogFooterCard />
@@ -20,11 +20,11 @@ class Footer extends Component {
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="widget">
-                  <h2 class="widget-title">Popular Posts</h2>
-                  <div class="blog-list-widget">
-                    <div class="list-group">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div className="widget">
+                  <h2 className="widget-title">Popular Posts</h2>
+                  <div className="blog-list-widget">
+                    <div className="list-group">
                       <BlogFooterCard />
 
                       <BlogFooterCard />
@@ -34,10 +34,10 @@ class Footer extends Component {
                 </div>
               </div>
 
-              <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="widget">
-                  <h2 class="widget-title">Popular Categories</h2>
-                  <div class="link-widget">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div className="widget">
+                  <h2 className="widget-title">Popular Categories</h2>
+                  <div className="link-widget">
                     <ul>
                       <li>
                         <a href="#">
@@ -80,17 +80,17 @@ class Footer extends Component {
               </div>
             </div>
 
-            <hr class="invis1" />
+            <hr className="invis1" />
 
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                <div class="widget">
-                  <div class="footer-text text-center">
+            <div className="row">
+              <div className="col-lg-8 offset-lg-2">
+                <div className="widget">
+                  <div className="footer-text text-center">
                     <a href="index.html">
                       <img
                         src="images/logo-transparent.png"
                         alt=""
-                        class="img-fluid"
+                        className="img-fluid"
                       />
                     </a>
                     <p>
@@ -98,14 +98,14 @@ class Footer extends Component {
                       fashion styles from independent creatives around the
                       world.
                     </p>
-                    <div class="social">
+                    <div className="social">
                       <a
                         href="#"
                         data-toggle="tooltip"
                         data-placement="bottom"
                         title="Facebook"
                       >
-                        <i class="fa fa-facebook"></i>
+                        <i className="fa fa-facebook"></i>
                       </a>
                       <a
                         href="#"
@@ -113,7 +113,7 @@ class Footer extends Component {
                         data-placement="bottom"
                         title="Twitter"
                       >
-                        <i class="fa fa-twitter"></i>
+                        <i className="fa fa-twitter"></i>
                       </a>
                       <a
                         href="#"
@@ -121,21 +121,21 @@ class Footer extends Component {
                         data-placement="bottom"
                         title="Instagram"
                       >
-                        <i class="fa fa-instagram"></i>
+                        <i className="fa fa-instagram"></i>
                       </a>
                     </div>
 
-                    <hr class="invis" />
+                    <hr className="invis" />
 
-                    <div class="newsletter-widget text-center">
-                      <form class="form-inline">
+                    <div className="newsletter-widget text-center">
+                      <form className="form-inline">
                         <input
                           type="text"
-                          class="form-control"
+                          className="form-control"
                           placeholder="Enter your email address"
                         />
-                        <button type="submit" class="btn btn-primary">
-                          Subscribe <i class="fa fa-envelope-open-o"></i>
+                        <button type="submit" className="btn btn-primary">
+                          Subscribe <i className="fa fa-envelope-open-o"></i>
                         </button>
                       </form>
                     </div>
@@ -143,10 +143,10 @@ class Footer extends Component {
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12 text-center">
+            <div className="row">
+              <div className="col-md-12 text-center">
                 <br />
-                <div class="copyright">
+                <div className="copyright">
                   &copy; Zero-Sand. Designed by:{" "}
                   <a href="http://www.creometry.com">Creometry</a>.
                 </div>

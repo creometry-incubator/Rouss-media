@@ -17,10 +17,10 @@ export default function SearchResult () {
     }, [])
         return (
             <div>
-                <div class="page-title wb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div className="page-title wb">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <h2> {search} </h2>
                     </div>
                                        
@@ -28,12 +28,12 @@ export default function SearchResult () {
             </div>
         </div>
 
-        <section class="section wb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="page-wrapper">
-                            <div class="portfolio row">
+        <section className="section wb">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div className="page-wrapper">
+                            <div className="portfolio row">
                                 {articles.map((article, index)=>(
                                     <div key={index} className='col-md-4'>
                                     <BlogBox4 article={article} />
@@ -44,17 +44,17 @@ export default function SearchResult () {
                             </div>
                         </div>
 
-                        <hr class="invis"/>
+                        <hr className="invis"/>
 
-                        {/* {<div class="row">
-                            <div class="col-md-12">
+                        {/* {<div className="row">
+                            <div className="col-md-12">
                                 <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-start">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
+                                    <ul className="pagination justify-content-start">
+                                        <li className="page-item"><a className="page-link" href="#">1</a></li>
+                                        <li className="page-item"><a className="page-link" href="#">2</a></li>
+                                        <li className="page-item"><a className="page-link" href="#">3</a></li>
+                                        <li className="page-item">
+                                            <a className="page-link" href="#">Next</a>
                                         </li>
                                     </ul>
                                 </nav>

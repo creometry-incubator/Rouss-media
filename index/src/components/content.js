@@ -16,15 +16,15 @@ export default function Content(props) {
     }, [])
     return (
             <div>
-                <section class="section wb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                        <div class="page-wrapper">
-                            <div class="blog-title-area">
+                <section className="section wb">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div className="page-wrapper">
+                            <div className="blog-title-area">
                                 
                                 
-                                <div class="tag-cloud-single">
+                                <div className="tag-cloud-single">
                                     <span>Tags</span>
                                     {article.tags.map((element)=>(
                                     <small><a href="#" title="">{element.text}</a></small>
@@ -34,18 +34,18 @@ export default function Content(props) {
                             </div>
                                 <h3>{article.title}</h3>
 
-                                <div class="blog-meta big-meta">
+                                <div className="blog-meta big-meta">
                                     <small><a href="single.html" title="">{(new Date(article.updatedAt)).toDateString()}, </a></small>
                                     <small><a href="blog-author.html" title="">by {article.author.username}</a></small>
                                 </div>
 
                             </div>
 
-                            <div class="single-post-media">
-                                <img src={article.imageLink} alt="" class="img-fluid"/>
+                            <div className="single-post-media">
+                                <img src={article.imageLink} alt="" className="img-fluid"/>
                             </div>
 
-                            <div class="blog-content" dangerouslySetInnerHTML={{__html: article.content}} >  
+                            <div className="blog-content" dangerouslySetInnerHTML={{__html: article.content}} >  
                                  
                             </div>
 
@@ -54,7 +54,7 @@ export default function Content(props) {
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                         <Sidebar/>
                     </div>
                 </div>

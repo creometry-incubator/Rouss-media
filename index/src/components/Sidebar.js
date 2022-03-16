@@ -4,12 +4,12 @@ import SearchBar from './SearchComponent';
 class Sidebar extends Component {
     render() { 
         return (
-            <div class="sidebar">
+            <div className="sidebar">
                             <SearchBar />
-                            <div class="widget">
-                                <h2 class="widget-title">Recent Posts</h2>
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
+                            <div className="widget">
+                                <h2 className="widget-title">Recent Posts</h2>
+                                <div className="blog-list-widget">
+                                    <div className="list-group">
                                         <BlogFooterCard />
                                         <BlogFooterCard />
                                         <BlogFooterCard />
@@ -17,9 +17,9 @@ class Sidebar extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div class="widget">
-                                <h2 class="widget-title">Popular Categories</h2>
-                                <div class="link-widget">
+                            <div className="widget">
+                                <h2 className="widget-title">Popular Categories</h2>
+                                <div className="link-widget">
                                     <ul>
                                         <li><a href="#">Fahsion <span>(21)</span></a></li>
                                         <li><a href="#">Lifestyle <span>(15)</span></a></li>

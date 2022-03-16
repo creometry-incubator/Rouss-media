@@ -5,16 +5,16 @@ class BlogBox1 extends Component {
     }
     render() { 
         return (
-            <div class="masonry-box post-media">
+            <div className="masonry-box post-media">
                 <a href={'/#/'+this.props.article._id} title="">
-                                            <img src={this.props.article.imageLink} alt="" class="img-fluid"/>
-                                            <div class="hovereffect"></div>
+                                            <img src={this.props.article.imageLink} alt="" className="img-fluid"/>
+                                            <div className="hovereffect"></div>
                                         </a>
-                             <div class="shadoweffect">
-                                <div class="shadow-desc">
-                                    <div class="blog-meta">
+                             <div className="shadoweffect">
+                                <div className="shadow-desc">
+                                    <div className="blog-meta">
                                     {this.props.article.tags.map((tag, index)=>(
-                                                <span class="bg-grey"><a href={'/#/'+this.props.article._id} title="">{tag.text}</a></span>
+                                                <span className="bg-grey"><a href={'/#/'+this.props.article._id} title="">{tag.text}</a></span>
                                             ))}                                        
                                         <h4><a href={'/#/'+this.props.article._id} title="">{this.props.article.title}</a></h4>
                                         <small><a href={'/#/'+this.props.article._id} title="">{(new Date(this.props.article.updatedAt)).toDateString()}</a></small>

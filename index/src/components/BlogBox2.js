@@ -5,16 +5,16 @@ class BlogBox2 extends Component {
     }
     render() { 
         return (
-            <div class="blog-box">
-                                    <div class="post-media">
+            <div className="blog-box">
+                                    <div className="post-media">
                                         <a href={'/#/'+this.props.article._id} title="">
-                                            <img src={this.props.article.imageLink} alt="" class="img-fluid"/>
-                                            <div class="hovereffect">
+                                            <img src={this.props.article.imageLink} alt="" className="img-fluid"/>
+                                            <div className="hovereffect">
                                                 <span></span>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="blog-meta big-meta">
+                                    <div className="blog-meta big-meta">
                                         <h4><a href={'/#/'+this.props.article._id} title="">{this.props.article.title}</a></h4>
                                         <small><a href={'/#/'+this.props.article._id} title="">Lifestyle</a></small>
                                         <small><a href={'/#/'+this.props.article._id} title="">{(new Date(this.props.article.updatedAt)).toDateString()}</a></small>

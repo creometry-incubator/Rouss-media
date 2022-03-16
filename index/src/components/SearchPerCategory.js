@@ -5,10 +5,10 @@ class SearchCategory extends Component {
     render() { 
         return (
             <div>
-                <div class="page-title wb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div className="page-title wb">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <h2> Travel</h2>
                     </div>
                                      
@@ -16,26 +16,26 @@ class SearchCategory extends Component {
             </div>
         </div>
 
-        <section class="section wb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                        <div class="page-wrapper">
+        <section className="section wb">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div className="page-wrapper">
                             
-                            <hr class="invis"/>
+                            <hr className="invis"/>
 
-                            <div class="blog-grid-system">
-                                <div class="row">
-                                    <div class="col-md-6">
+                            <div className="blog-grid-system">
+                                <div className="row">
+                                    <div className="col-md-6">
                                         <BlogBoxSimple />
                                     </div>
-                                    <div class="col-md-6">
+                                    <div className="col-md-6">
                                         <BlogBoxSimple />
                                     </div>
-                                    <div class="col-md-6">
+                                    <div className="col-md-6">
                                         <BlogBoxSimple />
                                     </div>
-                                    <div class="col-md-6">
+                                    <div className="col-md-6">
                                         <BlogBoxSimple />
                                     </div>
 
@@ -43,17 +43,17 @@ class SearchCategory extends Component {
                             </div>
                         </div>
 
-                        <hr class="invis3"/>
+                        <hr className="invis3"/>
 
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div className="row">
+                            <div className="col-md-12">
                                 <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-start">
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
+                                    <ul className="pagination justify-content-start">
+                                        <li className="page-item"><a className="page-link" href="#">1</a></li>
+                                        <li className="page-item"><a className="page-link" href="#">2</a></li>
+                                        <li className="page-item"><a className="page-link" href="#">3</a></li>
+                                        <li className="page-item">
+                                            <a className="page-link" href="#">Next</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -61,7 +61,7 @@ class SearchCategory extends Component {
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                         <Sidebar />
                     </div>
                 </div>

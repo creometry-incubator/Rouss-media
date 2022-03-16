@@ -7,17 +7,17 @@ class BlogBox3 extends Component {
         return (
             <div>
                 
-                <div class="blog-box row">
-                                <div class="col-md-4">
-                                    <div class="post-media">
+                <div className="blog-box row">
+                                <div className="col-md-4">
+                                    <div className="post-media">
                                         <a href={'/#/'+this.props.article._id} title="">
-                                            <img src={this.props.article.imageLink} alt="" class="img-fluid"/>
-                                            <div class="hovereffect"></div>
+                                            <img src={this.props.article.imageLink} alt="" className="img-fluid"/>
+                                            <div className="hovereffect"></div>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="blog-meta big-meta col-md-8">
+                                <div className="blog-meta big-meta col-md-8">
                                     <h4><a href={'/#/'+this.props.article._id} title="">{this.props.article.title}</a></h4>
                                     <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                     <small><a href={'/#/'+this.props.article._id} title="">Travel</a></small>
@@ -26,7 +26,7 @@ class BlogBox3 extends Component {
                                 </div>
                             </div>
 
-                            <hr class="invis"/>
+                            <hr className="invis"/>
             </div>
         );
     }
