@@ -7,21 +7,27 @@ const jwt = require("jsonwebtoken")
 
 router.route('/').get(async (req, res)=>{
     let filter = req.query.filter
-    let articles = await Article.find(filter?{$or: [{"tags.id": filter}, {"title": filter}]}: null);
-    let result = [];
-    for(let article of articles){
-        let author = await Author.findById(article.authorId);
-        result.push({...article._doc, author: author._doc})
-    }
-    res.json(result);
+    Article.find(filter?{$or: [{"tags.id": filter}, {"title": filter}]}: null)
+    .populate("author").exec((err, articles)=>{
+        if(err) {
+            res.json(err);
+            return;
+        }
+        res.json(articles)
+    });
+    
 })
 
 router.route('/:id').get(async (req, res)=>{
     try{
         let content = fs.readFileSync("./articles/"+req.params.id+".html", 'utf8')
-        article = await Article.findById(req.params.id);
-        let author = await Author.findById(article.authorId);
-        res.json({...article._doc, content: content, author: author._doc});
+        article = await Article.findById(req.params.id).populate("author").exec((err, article)=>{
+            if(err) {
+                res.json(err);
+                return;
+            }
+            res.json({...article._doc, content: content});        
+        });
     }catch(err){
         res.json(err)
     }
@@ -60,7 +66,7 @@ router.route('/:id').delete(async (req, res)=>{
 router.post('/', async (req, res)=>{
     try{
         let author = jwt.decode(req.body.authorId);
-        let article = new Article({title: req.body.title, tags: req.body.tags, authorId: author._id, imageLink: req.body.imageLink });
+        let article = new Article({title: req.body.title, tags: req.body.tags, author: author._id, imageLink: req.body.imageLink });
         article = await article.save();   
         fs.writeFile("./articles/"+article._id+".html", req.body.content, err=>{if(err) console.log(err)});        
         res.json(article);

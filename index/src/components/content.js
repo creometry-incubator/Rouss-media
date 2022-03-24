@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import axios from "axios"
 import { useParams } from 'react-router-dom';
 export default function Content(props) {
-    const [article, setArticle] = useState({tags: []});
+    const [article, setArticle] = useState({tags: [], author: {username: ""}});
     const { id } = useParams()
     useEffect(()=>{
         axios.get(`${window.ENV.ARTICLE_SERVICE_URI}/${id}`).then(res=>{
@@ -26,8 +26,8 @@ export default function Content(props) {
                                 
                                 <div className="tag-cloud-single">
                                     <span>Tags</span>
-                                    {article.tags.map((element)=>(
-                                    <small><a href="#" title="">{element.text}</a></small>
+                                    {article.tags.map((element, index)=>(
+                                    <small key={index}><a href="#" title="">{element.text}</a></small>
                                 ))}
                                     
                                    
