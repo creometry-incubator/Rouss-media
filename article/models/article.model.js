@@ -13,13 +13,13 @@ const articleSchema = new Schema({
         required: false
         
     },
-    authorId:{
-        type: String,
+    author:{
+        type: Schema.Types.ObjectId,
+        ref: "author",
         required: true
     },
     imageLink:{
         type: String,
-        
     }
     }, 
     {
