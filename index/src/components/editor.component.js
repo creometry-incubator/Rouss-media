@@ -81,7 +81,6 @@ export default function Editor() {
           }
         });
     } else {
-      console.log("aaa");
       axios.post(window.ENV.ARTICLE_SERVICE_URI, formData).then((res) => {
         if (res.data._id) {
           window.alert("adding suceeded");

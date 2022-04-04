@@ -19,7 +19,7 @@ export default function Sign(){
          clientId={window.ENV.GOOGLE_CLIENT_ID}
          buttonText="Login"
          onSuccess={responseGoogle}
-         onFailure={()=>{console.log("error occured")}}
+         onFailure={(e)=>{console.log(e)}}
           />
     </div>);
     return(<div></div>)
