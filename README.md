@@ -1,2 +1,2 @@
-# Rouss-media
-A news bloging site
+# The gloomey.com
+A satire news blog Built by and hosted on Creometry
