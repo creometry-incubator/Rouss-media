@@ -60,7 +60,7 @@ class Navbar extends Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="logo">
-                            <a href="/"><img src="images/logo-transparent.png" alt=""/></a>
+                            <a href="/"><img src="images/logo-gloomey.png" alt=""/></a>
                         </div>
                     </div>
                 </div>

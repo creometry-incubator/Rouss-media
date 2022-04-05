@@ -15,7 +15,8 @@ export default function Sign(){
     if(!cookies.gloomeyToken)
     return(<div>
         
-        <GoogleLogin 
+        <GoogleLogin
+        className='google_button' 
          clientId={window.ENV.GOOGLE_CLIENT_ID}
          buttonText="Login"
          onSuccess={responseGoogle}
