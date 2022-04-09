@@ -1678,4 +1678,23 @@ hr.invis3 {
   width: 100%;
 }
 .google_button {
+  margin-left: 36%;
+  display: block;
+  text-align: center;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: 600;
+  background: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #4285f4;
+  color: #fff !important ;
+  width: max-content;
+}
+.google_button:hover{
+  background: #5892f1;
+  color: #fff !important;
+}
+.align-center{
+  text-align: center;
 }

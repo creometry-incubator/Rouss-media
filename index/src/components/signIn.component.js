@@ -13,7 +13,7 @@ export default function Sign(){
         }
     }
     if(!cookies.gloomeyToken)
-    return(<div>
+    return(<div className='align-center mb-5 mt-3'>
         
         <GoogleLogin
         className='google_button' 
@@ -21,6 +21,12 @@ export default function Sign(){
          buttonText="Login"
          onSuccess={responseGoogle}
          onFailure={(e)=>{console.log(e)}}
+         render={renderProps => (
+            <a className="google_button" onClick={renderProps.onClick}>
+            <i className="fab fa-google icon-mr mr-3"></i> <span>Sign up with Google</span> 
+        
+            </a>
+        )}
           />
     </div>);
     return(<div></div>)
