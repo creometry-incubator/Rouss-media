@@ -8,8 +8,9 @@ class Navbar extends Component {
         this.submit = this.submit.bind(this)
     }
     submit(e){
-        e.preventDefault();
+        e.preventDefault();;
         window.location = "/#/search?filter="+this.state.search
+        window.location.reload();
     }
     render() { 
         return (<div>
