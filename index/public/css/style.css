@@ -1698,3 +1698,20 @@ hr.invis3 {
 .align-center{
   text-align: center;
 }
+.btn-bordered{
+  display: block;
+  text-align: center;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  border-color: #f2d129;
+  cursor: pointer;
+  background: #ffffff;
+  color: #f2d129 !important ;
+  width: max-content;
+}
+.btn-bordered:hover{
+  color: #fff !important;
+  background-color: #f2d129;
+}

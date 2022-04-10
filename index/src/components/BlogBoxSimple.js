@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 class BlogBoxSimple extends Component {
+    constructor(props){
+        super(props)
+    }
     render() { 
         return (
             <div>
                 <div className="blog-box">
                             <div className="post-media">
                                 <a href="single.html" title="">
-                                    <img src="upload/blog_11.jpg" alt="" className="img-fluid"/>
-                                    <div className="hovereffect">
-                                        <span className="videohover"></span>
-                                    </div>
+                                    <img src={this.props.image} alt="" className="img-fluid"/>
+                                    
                                 </a>
                             </div>
                             <div className="blog-meta">
-                                <h4><a href="single.html" title="">Nostalgia at work</a></h4>
+                                <h4><a href="single.html" title="">{this.props.title} </a></h4>
                                 <small><a href="blog-category-01.html" title="">Videos</a></small>
-                                <small><a href="blog-category-01.html" title="">20 July, 2017</a></small>
+                                <small><a href="blog-category-01.html" title="">{this.props.date} </a></small>
                             </div>
                         </div>
 
