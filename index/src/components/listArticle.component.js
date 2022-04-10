@@ -68,7 +68,7 @@ export default function List() {
       )}
 
       <div className="container-fluid ">
-          <div className="row">
+          <div className="row mb-4">
           <div className="col-lg-2">
           <button className="btn-bordered" onClick={() => (window.location = "/#/editor")}>
             <i class="fa-solid fa-plus mr-3"></i> add article
@@ -100,28 +100,26 @@ export default function List() {
             </div>
             </div>
 
-        <ul>
           
-            <span key={1}>
-            <div className="col-lg-3">
+            <div className="row" key={1}>
+            <div className="col-lg-3 mb-3">
                 <BlogBoxSimple
-                    title="heollo"
+                    title="Separate your place with exotic hotels"
+                    date="27 FEB 2022"
                     image="https://www.gaz-mobilite.fr/img/news/citroen-hy-jupalo-gnv_230719.jpg"
                 />
-                </div>
-              <button
-                onClick={() =>
+                <a type="submit" onClick={() =>
                   (window.location = "/#/editor?id=" )
-                }
-              >
-                update
-              </button>
-              <button onClick={() => delArticle(11, 20)}>
-                delete
-              </button>
-            </span>
-          
-        </ul>
+                } className="btn btn-icon mr-2">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                <a type="submit" onClick={() => delArticle(11, 20)} className="btn btn-icon">
+                <i class="fa-solid fa-trash"></i>
+                </a>
+                
+
+            </div>
+        </div>  
       </div>
     </div>
   );

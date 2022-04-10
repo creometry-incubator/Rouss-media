@@ -648,27 +648,28 @@ div.tab button:hover {
   font-size: 21px;
   margin: 0 0.3rem;
 }
-
 .dmtop {
   background-color: #111111;
   background-image: url(images/arrow-yellow.png);
   background-position: 50% 50%;
   background-repeat: no-repeat;
   z-index: 9999;
+  text-align: center;
   width: 40px;
   height: 40px;
-  text-indent: -99999px;
+  text-indent: 0px;
   position: fixed;
   bottom: -100px;
   right: 25px;
   cursor: pointer;
-  -webkit-transition: all 0.7s ease-in-out;
-  -moz-transition: all 0.7s ease-in-out;
-  -o-transition: all 0.7s ease-in-out;
-  -ms-transition: all 0.7s ease-in-out;
-  transition: all 0.7s ease-in-out;
+  -webkit-transition: all .7s ease-in-out;
+  -moz-transition: all .7s ease-in-out;
+  -o-transition: all .7s ease-in-out;
+  -ms-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
   overflow: auto;
 }
+
 
 /* PAGES 
 **************************************/
@@ -1698,20 +1699,44 @@ hr.invis3 {
 .align-center{
   text-align: center;
 }
-.btn-bordered{
-  display: block;
-  text-align: center;
-  padding: 12px 30px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 50px;
-  border-color: #f2d129;
-  cursor: pointer;
-  background: #ffffff;
-  color: #f2d129 !important ;
+.btn-bordered {
+	background-color:#ffffff;
+	border-radius:5px;
+	border:2px solid #f2d029;
+	display:inline-block;
+	cursor:pointer;
+	color:#f2d029;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:11px 31px;
+	text-decoration:none;
   width: max-content;
 }
-.btn-bordered:hover{
-  color: #fff !important;
-  background-color: #f2d129;
+.btn-bordered:hover {
+	background-color:#f2d029;
+  color: #fff;
+}
+.btn-bordered:active {
+	position:relative;
+	top:1px;
+  transition: 0.5s;
+}
+
+.btn-icon{
+  padding: 0;
+  border-color: #edeff2 !important;
+  height: 45px;
+  border-radius: 50 !important;
+  background-color: #edeff2 !important;
+  right: 0;
+  color: #000000 !important;
+  width: 45px;
+  line-height: 45px;
+  margin-left: 0;
+  cursor: pointer;
+}
+.btn-icon:hover{
+  background-color: #f2d129 !important;
+  color: #edeff2 !important;
 }
