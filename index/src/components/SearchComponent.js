@@ -8,7 +8,7 @@ class SearchBar extends Component {
                                     <div className="form-group">
                                         <input type="text" className="form-control" placeholder="Search on the site"/>
                                     </div>
-                                    <a type="submit" href="search.html" className="btn btn-primary"><i className="fa fa-search"></i></a>
+                                    <a type="submit" href="" className="btn btn-primary"><i className="fa fa-search"></i></a>
                                 </form>
                             </div>
         );

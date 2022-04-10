@@ -60,7 +60,9 @@ export default function Editor() {
     }
   }, []);
   const Save = () => {
-    if (!img || !title || !value) return;
+    if (!img || !title || !value){
+      alert("Please fill all fields!!!")
+      return;}
     let formData = {
       title: title,
       content: value,
@@ -76,7 +78,6 @@ export default function Editor() {
             window.alert("modifying suceeded");
             window.location = "/";
           } else {
-            console.log(res.data);
             window.alert("opps!! an error occured");
           }
         });
@@ -118,7 +119,7 @@ export default function Editor() {
               <div className="page-wrapper">
                 
                   <div className="col-lg-12">
-                    <form className="form-wrapper">
+                    <div className="form-wrapper">
                       <div className="row">
                       <div className="col-lg-6">
                       <input
@@ -159,7 +160,7 @@ export default function Editor() {
                       ></ReactQuill>
                       <button className="btn btn-primary" onClick={Save}>save</button>
                       {/*<p>{value}</p>*/}
-                    </form>
+                    </div>
                 </div>
               </div>
             </div>

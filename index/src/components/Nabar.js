@@ -8,8 +8,9 @@ class Navbar extends Component {
         this.submit = this.submit.bind(this)
     }
     submit(e){
-        e.preventDefault();
+        e.preventDefault();;
         window.location = "/#/search?filter="+this.state.search
+        window.location.reload();
     }
     render() { 
         return (<div>
@@ -60,7 +61,7 @@ class Navbar extends Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="logo">
-                            <a href="/"><img src="images/logo-transparent.png" alt=""/></a>
+                            <a href="/"><img src="images/logo-gloomey.png" alt=""/></a>
                         </div>
                     </div>
                 </div>
