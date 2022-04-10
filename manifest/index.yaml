@@ -19,9 +19,8 @@ spec:
         - containerPort: 80
         volumeMounts:
           - name: config
-            mountPath: /usr/share/nginx/html/config.js
+            mountPath: /usr/share/nginx/html/config
             readOnly: true
-            subPath: config.js
       volumes:
       - name: config
         configMap:

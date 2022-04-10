@@ -23,7 +23,14 @@ spec:
               configMapKeyRef:
                 name: blog-configmap
                 key: ATLAS_URI 
-          
+        volumeMounts:
+          - name: article-volume
+            mountPath: /app/articles
+      volumes:
+          - name: article-volume
+            persistentVolumeClaim:
+              claimName: article-claim
+
 ---
 apiVersion: v1
 kind: Service
