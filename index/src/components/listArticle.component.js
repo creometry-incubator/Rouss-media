@@ -32,42 +32,7 @@ export default function List() {
       <Sign />
       {cookies.gloomeyToken ? (
         <div>
-          <button onClick={() => (window.location = "/#/editor")}>
-            add article
-          </button>
-          <input
-            type="text"
-            placeholder=""
-            value={filter}
-            onChange={(e) => {
-              setFilter(e.target.value);
-            }}
-          />
-          <button onClick={search}>search</button>
-          <ul>
-            {articles.map((article, index) => (
-              <li key={index}>
-                <p>{article.title}</p>
-                <img src={article.imageLink} width="200"></img>
-                <button
-                  onClick={() =>
-                    (window.location = "/#/editor?id=" + article._id)
-                  }
-                >
-                  update
-                </button>
-                <button onClick={() => delArticle(article._id, index)}>
-                  delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <div></div>
-      )}
-
-      <div className="container-fluid ">
+          <div className="container-fluid ">
           <div className="row mb-4">
           <div className="col-lg-2">
           <button className="btn-bordered" onClick={() => (window.location = "/#/editor")}>
@@ -102,25 +67,35 @@ export default function List() {
 
           
             <div className="row" key={1}>
-            <div className="col-lg-3 mb-3">
+            {articles.map((article, index) => (
+                <div className="col-lg-3 mb-3">
                 <BlogBoxSimple
-                    title="Separate your place with exotic hotels"
-                    date="27 FEB 2022"
-                    image="https://www.gaz-mobilite.fr/img/news/citroen-hy-jupalo-gnv_230719.jpg"
+                    title={article.title}
+                    date=""
+                    image={article.imageLink}
                 />
                 <a type="submit" onClick={() =>
-                  (window.location = "/#/editor?id=" )
+                  (window.location = "/#/editor?id="+ article._id )
                 } className="btn btn-icon mr-2">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
-                <a type="submit" onClick={() => delArticle(11, 20)} className="btn btn-icon">
+                <a type="submit" onClick={() => delArticle(article._id, index)} className="btn btn-icon">
                 <i class="fa-solid fa-trash"></i>
                 </a>
                 
 
             </div>
+              
+            ))}
+            
         </div>  
       </div>
+        </div>
+      ) : (
+        <div></div>
+      )}
+
+      
     </div>
   );
 }
