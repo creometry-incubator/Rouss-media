@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { WithContext as ReactTags } from "react-tag-input";
 import "../css/reacttags.css";
 import { useCookies } from "react-cookie";
-
+let categories = ["sports", "fashion", "travelling", "lifestyle", "news"]
 let modules = {
   toolbar: [
     [{ font: [] }],
@@ -95,8 +95,14 @@ export default function Editor() {
   const handleDelete = (i) => {
     setTags(tags.filter((tag, index) => index !== i));
   };
-
+  const findCateg = (categorie)=>{
+    for(let tag of tags){
+      if(tag.id == categorie) return true;
+    }
+    return false;
+  }
   const handleAddition = (tag) => {
+    console.log(tag)
     setTags([...tags, tag]);
   };
 
@@ -138,6 +144,18 @@ export default function Editor() {
 
                       </div>
                       </div>
+                      {categories.map((categorie, index)=>(
+                        <button className={findCateg(categorie)?"buttrue": "butfalse"}
+                        onClick={()=>{
+                          let bool = false;
+                          for(let tag of tags){
+                            if(tag.id == categorie) {bool = true; break;}
+                          }
+                          if(!bool)
+                          handleAddition({id: categorie, text: categorie})
+                          }}>{categorie}</button>
+                      ))}
+                     
                       <ReactTags
                         tags={tags}
                         handleAddition={handleAddition}

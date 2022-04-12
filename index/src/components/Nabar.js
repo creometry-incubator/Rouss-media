@@ -83,15 +83,15 @@ class Navbar extends Component {
                             <li className="nav-item dropdown has-submenu">
                                 <a className="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                                 <ul className="dropdown-menu" aria-labelledby="dropdown02">
-                                    <li><a className="dropdown-item" href="#">Sports</a></li>
-                                    <li><a className="dropdown-item" href="#">Fashion</a></li>
-                                    <li><a className="dropdown-item" href="#">Travelling</a></li>
-                                    <li><a className="dropdown-item" href="#">Lifestyle</a></li>
+                                    <li><a className="dropdown-item" href="/#/search?filter=sports">Sports</a></li>
+                                    <li><a className="dropdown-item" href="/#/search?filter=fashion">Fashion</a></li>
+                                    <li><a className="dropdown-item" href="/#/search?filter=travelling">Travelling</a></li>
+                                    <li><a className="dropdown-item" href="/#/search?filter=lifestyle">Lifestyle</a></li>
 
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">GameHub</a>
+                                <a className="nav-link" href="/#/search?filter=news">Lastest news</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#"><i className="fa fa-play-circle-o"></i> Videos</a>
