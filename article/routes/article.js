@@ -21,11 +21,13 @@ router.route('/').get(async (req, res)=>{
 router.route('/:id').get(async (req, res)=>{
     try{
         let content = fs.readFileSync("./articles/"+req.params.id+".html", 'utf8')
-        article = await Article.findById(req.params.id).populate("author").exec((err, article)=>{
+        await Article.findById(req.params.id).populate("author").exec(async (err, article)=>{
             if(err) {
                 res.json(err);
                 return;
             }
+            article.views = article.views + 1;
+            await article.save();
             res.json({...article._doc, content: content});        
         });
     }catch(err){

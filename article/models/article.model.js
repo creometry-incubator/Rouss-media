@@ -20,6 +20,11 @@ const articleSchema = new Schema({
     },
     imageLink:{
         type: String,
+    },
+    views:{
+        type: Number,
+        default: 0,
+        required: true
     }
     }, 
     {
