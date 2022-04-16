@@ -29,7 +29,7 @@ class Footer extends Component {
                     <div className="list-group">
                       {this.state.recent.map((article, index)=>{
                         if(index < 3) return(
-                          <BlogFooterCard article={article}/>
+                          <BlogFooterCard key={"recent-"+index} article={article}/>
                         )
                       })}
                     </div>
@@ -44,7 +44,7 @@ class Footer extends Component {
                     <div className="list-group">
                     {this.state.hot.map((article, index)=>{
                         if(index < 3) return(
-                          <BlogFooterCard article={article}/>
+                          <BlogFooterCard key={"hot-"+index} article={article}/>
                         )
                       })}
                     </div>

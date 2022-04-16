@@ -25,8 +25,8 @@ function Home(props) {
               <div className="row">
                 {latest.map((article, index)=>{
                   if(index < 3) return(
-                    <div className="col-lg-4">
-                      <BlogBox1 article={article} />
+                    <div key={"home-latest-"+index} className="col-lg-4">
+                      <BlogBox1  article={article} />
                     </div>
                   )
                 })}
@@ -40,9 +40,9 @@ function Home(props) {
             <div className="row">
               {trendings.map((article, index)=>{
                   if(index < 2) return(
-                    <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div key={"trendings-"+index} className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                       {article.tags.map((tag, index)=>(
-                      <CategoryTitle color={"color-aqua"} tag={tag.id} />
+                      <CategoryTitle  key={"tags-"+index} color={"color-aqua"} tag={tag.id} />
                       ))}
                       <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">

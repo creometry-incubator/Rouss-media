@@ -23,7 +23,7 @@ class Sidebar extends Component {
                                     <div className="list-group">
                                     {this.state.recent.map((article, index)=>{
                                         if(index < 3) return(
-                                        <BlogFooterCard article={article}/>
+                                        <BlogFooterCard key={"sidebar-recent-"+index} article={article}/>
                                         )
                                     })}
                                     </div>

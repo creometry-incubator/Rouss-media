@@ -16,27 +16,27 @@ class Trends extends Component {
     render() { 
         return (
             <div>
-                <div class="page-title wb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <h2><i class="fa fa-star bg-pink"></i> Trends </h2>
+                <div className="page-title wb">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <h2><i className="fa fa-star bg-pink"></i> Trends </h2>
                     </div>
                                      
                 </div>
             </div>
         </div>
 
-        <section class="section wb">
-            <div class="container">
-                <div class="row">
+        <section className="section wb">
+            <div className="container">
+                <div className="row">
                     
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="page-wrapper">
-                            <div class="portfolio row">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div className="page-wrapper">
+                            <div className="portfolio row">
                                 {this.state.hot.map((article,index)=>{
                                     if(index < ( this.state.index *6) && index >= ((this.state.index-1)*6)) return(
-                                        <div className='col-md-4'>
+                                        <div key={"trends-hot-"+index} className='col-md-4'>
                                         <BlogBox4 article={article} />
                                     </div>
                                     )
@@ -45,21 +45,21 @@ class Trends extends Component {
                             </div>
                         </div>
 
-                        <hr class="invis"/>
+                        <hr className="invis"/>
 
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div className="row">
+                            <div className="col-md-12">
                                 <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-start">
-                                        {[...Array(Math.ceil((this.state.hot.length)/6))].map((e, i) =><li class="page-item" onClick={()=>this.setState({index: i+1})}><a class="page-link">{i+1}</a></li>)}
+                                    <ul className="pagination justify-content-start">
+                                        {[...Array(Math.ceil((this.state.hot.length)/6))].map((e, i) =><li key={"numbers"+i} className="page-item" onClick={()=>this.setState({index: i+1})}><a className="page-link">{i+1}</a></li>)}
                                         {this.state.index== 1? <div></div>:
-                                        <li class="page-item" onClick={()=>this.setState({index: this.state.index - 1})}>
-                                        <a class="page-link">Back</a>
+                                        <li className="page-item" onClick={()=>this.setState({index: this.state.index - 1})}>
+                                        <a className="page-link">Back</a>
                                         </li>
                                         }
                                         {this.state.index== Math.floor(this.state.hot.length/7) + 1? <div></div>:
-                                        <li class="page-item" onClick={()=>this.setState({index: this.state.index + 1})}>
-                                        <a class="page-link">Next</a>
+                                        <li className="page-item" onClick={()=>this.setState({index: this.state.index + 1})}>
+                                        <a className="page-link">Next</a>
                                         </li>}
                                     </ul>
                                 </nav>
