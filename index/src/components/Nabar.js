@@ -41,7 +41,6 @@ class Navbar extends Component {
                         <div className="topmenu text-center">
                             <ul className="list-inline">
                                 <li className="list-inline-item"><a href="/#/trends"><i className="fa fa-star"></i> Trends</a></li>
-                                <li className="list-inline-item"><a href="/#/hot"><i className="fa fa-bolt"></i> Hot Topics</a></li>
                                 <li className="list-inline-item"><a href="/#/myArticles"><i className="fa fa-user-circle-o"></i> Write your article</a></li>
                             </ul>
                         </div>

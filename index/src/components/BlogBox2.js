@@ -16,7 +16,6 @@ class BlogBox2 extends Component {
                                     </div>
                                     <div className="blog-meta big-meta">
                                         <h4><a href={'/#/'+this.props.article._id} title="">{this.props.article.title}</a></h4>
-                                        <small><a href={'/#/'+this.props.article._id} title="">Lifestyle</a></small>
                                         <small><a href={'/#/'+this.props.article._id} title="">{(new Date(this.props.article.updatedAt)).toDateString()}</a></small>
                                         <small><a href={'/#/'+this.props.article._id} title="">by {this.props.article.author.username}</a></small>
                                     </div>
