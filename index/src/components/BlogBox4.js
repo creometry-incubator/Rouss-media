@@ -17,7 +17,7 @@ class BlogBox4 extends Component {
                                         </div>
                                         <div className="blog-meta">
                                             {this.props.article.tags.map((tag, index)=>(
-                                                <span className="bg-grey"><a href={'/#/'+this.props.article._id} title="">{tag.text}</a></span>
+                                                <span key={"blogbox4-tags-"+index} className="bg-grey"><a href={'/#/'+this.props.article._id} title="">{tag.text}</a></span>
                                             ))}
                                             <h4><a href={'/#/'+this.props.article._id} title="">{this.props.article.title}</a></h4>
                                             <small><a href={'/#/'+this.props.article._id} title="">By: {this.props.article.author.username}</a></small>

@@ -8,16 +8,16 @@ class BlogBoxSimple extends Component {
             <div>
                 <div className="blog-box">
                             <div className="post-media">
-                                <a href="single.html" title="">
-                                    <img src={this.props.image} alt="" className="img-fluid"/>
+                                <a href={"/#/"+this.props.article._id} title="">
+                                    <img src={this.props.article.imageLink} alt="" className="img-fluid"/>
                                     <div className="hovereffect">
                                         <span className="videohover"></span>
                                     </div>
                                 </a>
                             </div>
                             <div className="blog-meta">
-                                <h4><a href="single.html" title="">{this.props.title} </a></h4>
-                                <small>{this.props.date} </small>
+                                <h4><a href="" title="">{this.props.article.title} </a></h4>
+                                <small>{(new Date(this.props.article.updatedAt)).toDateString()} </small>
                             </div>
                         </div>
             </div>
