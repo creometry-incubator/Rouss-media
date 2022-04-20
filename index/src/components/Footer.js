@@ -1,6 +1,21 @@
+import axios from "axios";
 import React, { Component } from "react";
 import BlogFooterCard from "./BlogFooterCard";
 class Footer extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        recent: [],
+        hot: []
+      }
+    }
+    componentDidMount(){
+      axios.get(window.ENV.ARTICLE_SERVICE_URI).then(res=>{
+        this.setState({recent: res.data})
+    })
+    axios.get(window.ENV.ARTICLE_SERVICE_URI+"/hot").then(res=>{
+      this.setState({hot: res.data})  })
+    }
   render() {
     return (
       <div>
@@ -12,9 +27,11 @@ class Footer extends Component {
                   <h2 className="widget-title">Recent Posts</h2>
                   <div className="blog-list-widget">
                     <div className="list-group">
-                      <BlogFooterCard />
-                      <BlogFooterCard />
-                      <BlogFooterCard />
+                      {this.state.recent.map((article, index)=>{
+                        if(index < 3) return(
+                          <BlogFooterCard key={"recent-"+index} article={article}/>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>
@@ -25,10 +42,11 @@ class Footer extends Component {
                   <h2 className="widget-title">Popular Posts</h2>
                   <div className="blog-list-widget">
                     <div className="list-group">
-                      <BlogFooterCard />
-
-                      <BlogFooterCard />
-                      <BlogFooterCard />
+                    {this.state.hot.map((article, index)=>{
+                        if(index < 3) return(
+                          <BlogFooterCard key={"hot-"+index} article={article}/>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>

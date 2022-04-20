@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken")
 
 router.route('/').get(async (req, res)=>{
     let filter = req.query.filter
-    Article.find(filter?{$or: [{"tags.id": filter}, {"title": filter}]}: null)
+    Article.find(filter?{$or: [{"tags.id": filter}, {"title": filter}]}: null).sort({createdAt: -1})
     .populate("author").exec((err, articles)=>{
         if(err) {
             res.json(err);
@@ -17,15 +17,27 @@ router.route('/').get(async (req, res)=>{
     });
     
 })
-
+router.route('/hot').get(async (req, res)=>{
+    let filter = req.query.filter
+    Article.find(filter?{$or: [{"tags.id": filter}, {"title": filter}]}: null).sort({views: -1})
+    .populate("author").exec((err, articles)=>{
+        if(err) {
+            res.json(err);
+            return;
+        }
+        res.json(articles)
+    });
+})
 router.route('/:id').get(async (req, res)=>{
     try{
         let content = fs.readFileSync("./articles/"+req.params.id+".html", 'utf8')
-        article = await Article.findById(req.params.id).populate("author").exec((err, article)=>{
+        await Article.findById(req.params.id).populate("author").exec(async (err, article)=>{
             if(err) {
                 res.json(err);
                 return;
             }
+            article.views = article.views + 1;
+            await article.save();
             res.json({...article._doc, content: content});        
         });
     }catch(err){
@@ -77,5 +89,7 @@ router.post('/', async (req, res)=>{
     }
     
 })
+
+
 
 module.exports = router;

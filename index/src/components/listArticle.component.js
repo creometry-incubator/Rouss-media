@@ -36,7 +36,7 @@ export default function List() {
           <div className="row mb-4">
           <div className="col-lg-2">
           <button className="btn-bordered" onClick={() => (window.location = "/#/editor")}>
-            <i class="fa-solid fa-plus mr-3"></i> add article
+            <i className="fa-solid fa-plus mr-3"></i> add article
             </button>
           </div>
         
@@ -68,19 +68,17 @@ export default function List() {
           
             <div className="row" key={1}>
             {articles.map((article, index) => (
-                <div className="col-lg-3 mb-3">
+                <div key={"myarticles-"+index} className="col-lg-3 mb-3">
                 <BlogBoxSimple
-                    title={article.title}
-                    date=""
-                    image={article.imageLink}
+                    article={article}
                 />
                 <a type="submit" onClick={() =>
                   (window.location = "/#/editor?id="+ article._id )
                 } className="btn btn-icon mr-2">
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <i className="fa-solid fa-pen-to-square"></i>
                 </a>
                 <a type="submit" onClick={() => delArticle(article._id, index)} className="btn btn-icon">
-                <i class="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash"></i>
                 </a>
                 
 

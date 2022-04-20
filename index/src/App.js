@@ -21,7 +21,6 @@ function App() {
           <Route  path="/search" element={<SearchResult />}/>
           <Route  path="/contact" element={<Contact/>} />
           <Route  path="/trends" element={<Trends/>} />
-          <Route  path="/hot" element={<HotTopics/>} />
 
           <Route exact path="/myArticles" element={<List />} />
           <Route exact path="/404" element={<p>404</p>} />

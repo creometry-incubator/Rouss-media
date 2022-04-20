@@ -27,7 +27,9 @@ export default function Content(props) {
                                 <div className="tag-cloud-single">
                                     <span>Tags</span>
                                     {article.tags.map((element, index)=>(
-                                    <small key={index}><a href="#" title="">{element.text}</a></small>
+                                    <small key={index} onClick={()=>{
+                                        window.location = "/#/search?filter="+element.id;
+                                    }}><a title="">{element.text}</a></small>
                                 ))}
                                     
                                    
@@ -35,8 +37,8 @@ export default function Content(props) {
                                 <h3>{article.title}</h3>
 
                                 <div className="blog-meta big-meta">
-                                    <small><a href="single.html" title="">{(new Date(article.updatedAt)).toDateString()}, </a></small>
-                                    <small><a href="blog-author.html" title="">by {article.author.username}</a></small>
+                                    <small><a title="">{(new Date(article.updatedAt)).toDateString()}, </a></small>
+                                    <small><a title="">by {article.author.username}</a></small>
                                 </div>
 
                             </div>
