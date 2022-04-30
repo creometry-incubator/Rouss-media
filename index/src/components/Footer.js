@@ -22,7 +22,7 @@ class Footer extends Component {
         <footer className="footer">
           <div className="container">
             <div className="row">
-              <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div className="widget">
                   <h2 className="widget-title">Recent Posts</h2>
                   <div className="blog-list-widget">
@@ -37,7 +37,7 @@ class Footer extends Component {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div className="widget">
                   <h2 className="widget-title">Popular Posts</h2>
                   <div className="blog-list-widget">
@@ -52,50 +52,7 @@ class Footer extends Component {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div className="widget">
-                  <h2 className="widget-title">Popular Categories</h2>
-                  <div className="link-widget">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          Fahsion <span>(21)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Lifestyle <span>(15)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Art & Design <span>(31)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Health Beauty <span>(22)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Clothing <span>(66)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Entertaintment <span>(11)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          Food & Drink <span>(87)</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              
             </div>
 
             <hr className="invis1" />
@@ -112,7 +69,7 @@ class Footer extends Component {
                       />
                     </a>
                     <p>
-                      Zero Sand is a news blog, cameramade photography content,
+                      The gloomey is a news blog, cameramade photography content,
                       fashion styles from independent creatives around the
                       world.
                     </p>
