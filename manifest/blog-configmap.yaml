@@ -6,5 +6,5 @@ data:
   config.js: "window.ENV = {
       \"ARTICLE_SERVICE_URI\": \"https://gloomey.creometry.dev/articles/article\",
       \"AUTHOR_SERVICE_URI\": \"https://gloomey.creometry.dev/articles/author\",
-      \"GOOGLE_CLIENT_ID\": \"976091023700-nfai9g80uhojkr17tn21m67j349qo4t3.apps.googleusercontent.com\"}"
+      \"GOOGLE_CLIENT_ID\": \"147269114586-ebnn6ok45cfhfm66v4s2ipsh4j1r7j4u.apps.googleusercontent.com\"}"
   ATLAS_URI: "mongodb://mongodb-service:27017/Blog?retryWrites=true&w=majority"
