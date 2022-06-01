@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gloomey-web-ingress
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/server-alias: "gloomey.creometry.dev"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+  - host: thegloomey.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: index
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - thegloomey.com
+    - www.thegloomey.com
+    - gloomey.creometry.dev
+    secretName: gloomey-ingress-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gloomey-backend-ingress
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/server-alias: "gloomey.creometry.dev"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+  - host: thegloomey.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: gloomey-article-svc
+            port:
+              number: 5000
+        path: /articles(/|$)(.*)
+        pathType: Prefix
+  tls:
+  - hosts:
+    - thegloomey.com
+    - www.thegloomey.com
+    - gloomey.creometry.dev
+    secretName: gloomey-ingress-secret

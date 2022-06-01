@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gloomey-article-pvc
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 6Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gloomey-article-deploy
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  strategy: 
+    type: RollingUpdate
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      run: gloomey-article
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: gloomey-article
+    spec:
+      # nodeSelector:
+      #   community: thegloomey
+      containers:
+      - name: article
+        image: azizbhy/article:v0.1.0
+        ports:
+        - containerPort: 5000
+        env:
+          - name: ATLAS_URI
+            valueFrom:
+              configMapKeyRef:
+                name: gloomey-configmap
+                key: ATLAS_URI 
+        volumeMounts:
+          - name: gloomey-article-volume
+            mountPath: /app/articles
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+          requests:
+            cpu: "5m"
+            memory: "10Mi"    
+      volumes:
+          - name: gloomey-article-volume
+            persistentVolumeClaim:
+              claimName: gloomey-article-pvc
+              
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gloomey-article-svc
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+  selector:
+    run: gloomey-article

@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gloomey-web-deploy
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  strategy: 
+    type: RollingUpdate
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      run: gloomey-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: gloomey-web
+    spec:
+    #  nodeSelector:
+      #  community: thegloomey
+      containers:
+      - name: web
+        image: azizbhy/index:v0.1.0
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: gloomey-config
+            mountPath: /usr/share/nginx/html/config
+            readOnly: true
+        resources:
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
+          requests:
+            cpu: "5m"
+            memory: "10Mi"    
+      volumes:
+      - name: gloomey-config
+        configMap:
+          name: gloomey-configmap
+          items:
+            - key: config.js
+              path: config.js
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gloomey-web-svc
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: gloomey-web

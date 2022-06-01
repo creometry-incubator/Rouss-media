@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gloomey-configmap
+data:
+  config.js: "window.ENV = {
+      \"ARTICLE_SERVICE_URI\": \" \",
+      \"AUTHOR_SERVICE_URI\": \" \",
+      \"GOOGLE_CLIENT_ID\": \" \"}"
+  ATLAS_URI: "mongodb://mongodb-service:27017/Blog?retryWrites=true&w=majority"
