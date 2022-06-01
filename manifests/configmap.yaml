@@ -7,7 +7,7 @@ metadata:
     projectName: thegloomey
 data:
   config.js: "window.ENV = {
-      \"ARTICLE_SERVICE_URI\": \" \",
-      \"AUTHOR_SERVICE_URI\": \" \",
-      \"GOOGLE_CLIENT_ID\": \" \"}"
+      \"ARTICLE_SERVICE_URI\": \" http://gloomey-article-svc:5000\",
+      \"AUTHOR_SERVICE_URI\": \"\",
+      \"GOOGLE_CLIENT_ID\": \"1002248144321-edut4l5acmhc0ngnuk2q7u8q13v02pvq.apps.googleusercontent.com \"}"
   ATLAS_URI: "mongodb://gloomey-mongodb-svc:27017/Blog?retryWrites=true&w=majority"
