@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gloomey-mongodb-svc
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    run: gloomey-mongo
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: gloomey
+  name: gloomey-mongo-sts
+  labels:
+    projectName: thegloomey
+spec:
+  serviceName: gloomey-mongodb-svc
+  replicas: 1
+  selector:
+    matchLabels:
+      run: gloomey-mongo
+  template:
+    metadata:
+      labels:
+        run: gloomey-mongo
+        replicaset: MainRepSet
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongod-container
+          image: mongo
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: gloomey-mongodb-volume
+              mountPath: /data/db
+      volumes:
+        - name: gloomey-mongodb-volume
+          persistentVolumeClaim:
+            claimName: gloomey-mongodb-pvc
+            
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gloomey-mongodb-pvc
+  namespace: gloomey
+  labels:
+    projectName: thegloomey
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
